@@ -45,7 +45,6 @@ export default class GridExp extends Component {
 
     render() {
         const { isLoading, dataSource, filteredData } = this.state;
-
         return (
             <View style={styles.MainContainer}>
 
@@ -72,7 +71,6 @@ export default class GridExp extends Component {
                                 keyExtractor={(item, index) => index.toString()}
                             />
                         </View>
-
                     ) : <Spinner />
                 }
             </View>
