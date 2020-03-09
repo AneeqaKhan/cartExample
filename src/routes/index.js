@@ -28,7 +28,7 @@ import Products from '../components/pages/Products';
 import Checkout from '../components/pages/Checkout';
 import Receipt from '../components/pages/Receipt';
 import FlatGrid from '../components/dashboard/dashboard'
-import GridExp from '../components/dashboard/grid';
+import CartDashboard from '../components/dashboard/cartDasboard';
 const NavStack = createStackNavigator(
     {
         //   Products:Products,
@@ -36,7 +36,7 @@ const NavStack = createStackNavigator(
         //   Receipt: Receipt,
         //   FlatGrid:FlatGrid
         // Example:Example
-        GridExp: GridExp
+        CartDashboard: CartDashboard
 
     },
     // {
