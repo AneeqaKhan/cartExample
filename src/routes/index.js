@@ -39,15 +39,15 @@ const NavStack = createStackNavigator(
         GridExp: GridExp
 
     },
-    {
+    // {
 
-        navigationOptions: {
-            headerStyle: {
-                backgroundColor: 'yellow',
-            },
-            headerTintColor: 'red'
-        }
-    }
+    //     navigationOptions: {
+    //         headerStyle: {
+    //             backgroundColor: 'yellow',
+    //         },
+    //         headerTintColor: 'red'
+    //     }
+    // }
 );
 
 

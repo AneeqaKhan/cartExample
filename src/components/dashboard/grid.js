@@ -68,13 +68,20 @@ import {
     Text
 } from 'react-native';
 import { Spinner } from 'native-base';
+import { SearchBar } from 'react-native-elements';
+
 //import all the components we will need
 
 export default class GridExp extends Component {
+    static navigationOptions = {
+        title: 'Bata Shoes',
+      };
     constructor() {
         super();
         this.state = {
-            dataSource: {},
+            searchText: "",
+            dataSource: [],
+            filteredData: [],
             isLoading: true
         };
     }
@@ -88,24 +95,49 @@ export default class GridExp extends Component {
         })
 
     }
+    search = (searchText) => {
+        const { dataSource } = this.state;
+        this.setState({ searchText: searchText });
+        let filteredData = dataSource.filter(function (item) {
+            return item.name.includes(searchText);
+        });
+
+        this.setState({ filteredData: filteredData });
+    };
+  
     render() {
-        const { isLoading, dataSource } = this.state;
+        const { isLoading, dataSource, filteredData } = this.state;
 
         return (
             <View style={styles.MainContainer}>
+
                 {
                     !isLoading ? (
-                        <FlatList
-                            data={dataSource}
-                            renderItem={({ item }) => (
-                                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection: 'column', margin: 5, backgroundColor: 'red', height: 300 }}>
-                                    <Text style={{fontSize:18}}>{item.name}</Text>
-                                    <Image source={{ uri: item.imgUrl }} style={{ height: 250, width: 250, resizeMode: 'center' }} />
-                                </View>
-                            )}
-                            numColumns={2}
-                            keyExtractor={(item, index) => index.toString()}
-                        />
+                        <View style={{ flex: 1 }}>
+                            <SearchBar
+                                round={true}
+                                lightTheme={true}
+                                placeholder="Search..."
+                                autoCapitalize='none'
+                                autoCorrect={false}
+                                onChangeText={this.search}
+                                value={this.state.searchText}
+                            />
+                            <FlatList
+                                data={
+                                    filteredData && filteredData.length > 0 ? filteredData : dataSource
+                                }
+                                renderItem={({ item }) => (
+                                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection: 'column', margin: 5, backgroundColor: 'red', height: 300 }}>
+                                        <Text style={{ fontSize: 18 }}>{item.name}</Text>
+                                        <Image source={{ uri: item.imgUrl }} style={{ height: 250, width: 250, resizeMode: 'center' }} />
+                                    </View>
+                                )}
+                                numColumns={2}
+                                keyExtractor={(item, index) => index.toString()}
+                            />
+                        </View>
+
                     ) : <Spinner />
                 }
 
