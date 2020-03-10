@@ -6,7 +6,7 @@ import {
     Image,
     Text
 } from 'react-native';
-
+import { Dimension } from "../../ui-kit"
 
 export default class CartItems extends Component {
 
