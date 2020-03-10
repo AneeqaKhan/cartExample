@@ -5,7 +5,6 @@ import {
 import PropTypes from 'prop-types';
 import { chunkArray, calculateDimensions, generateStyles } from './utils';
 
-//test changes
 class FlatGrid extends React.Component {
   constructor(props) {
     super(props);
