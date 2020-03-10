@@ -5,7 +5,6 @@ import {
 import PropTypes from 'prop-types';
 import { chunkArray, calculateDimensions, generateStyles } from './utils';
 
-//test changes
 class FlatGrid extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +14,6 @@ class FlatGrid extends React.Component {
 
     const { staticDimension, horizontal } = props;
 
-    // Calculate total dimensions and set to state
     let totalDimension = staticDimension;
 
     if (!staticDimension) {
