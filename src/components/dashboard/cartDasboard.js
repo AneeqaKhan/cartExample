@@ -9,6 +9,7 @@ import {
 import { Spinner } from 'native-base';
 import { SearchBar } from 'react-native-elements';
 import CartItems from './cartItems'
+import SplashScreen from 'react-native-splash-screen';
 
 export default class GridExp extends Component {
     static navigationOptions = {
@@ -31,6 +32,7 @@ export default class GridExp extends Component {
                 });
             }
         })
+        SplashScreen.hide();
 
     }
     search = (searchText) => {
