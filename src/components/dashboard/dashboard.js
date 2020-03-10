@@ -14,7 +14,6 @@ class FlatGrid extends React.Component {
 
     const { staticDimension, horizontal } = props;
 
-    // Calculate total dimensions and set to state
     let totalDimension = staticDimension;
 
     if (!staticDimension) {
